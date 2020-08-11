@@ -65,9 +65,9 @@ function getNewQuestion() {
     // random option
     const optionIndex =
       availableOptions[Math.floor(Math.random() * availableOptions.length)];
-    // get the position of 'optionIndex'  from the availableOptions
+    // get the position of 'optionIndex'  from the availableOptions Array
     const index2 = availableOptions.indexOf(optionIndex);
-    // remove the 'optionIndex' from the availableOptions, so that the option does not repeat
+    // remove the 'optionIndex' from the availableOptions Array, so that the option does not repeat
     availableOptions.splice(index2, 1);
     // console.log(optionIndex)
     const option = document.createElement("div");
@@ -141,7 +141,7 @@ function updateAnswerIndicator(markType) {
 
 function next() {
   if (questionCounter === quiz.length) {
-    console.log("quiz over");
+    // console.log("quiz over");
     quizOver();
   } else {
     getNewQuestion();
@@ -149,7 +149,7 @@ function next() {
 }
 
 function quizOver() {
-  // hide quiz quizBox
+  // hide quiz Box
   quizBox.classList.add("hide");
   // show result Box
   resultBox.classList.remove("hide");
@@ -184,6 +184,15 @@ function tryAgainQuiz() {
   startQuiz();
 }
 
+function goToHome(){
+  // hide result box
+  resultBox.classList.add('hide');
+  // show home box
+  homeBox.classList.remove('hide');
+  resetQuiz();
+}
+
+
 // #### STARTING POINT ####
 
 function startQuiz() {
@@ -199,4 +208,8 @@ function startQuiz() {
 
   // to create indicators of answers
   answersIndicator();
+}
+
+window.onload = function(){
+  homeBox.querySelector('.total-question').innerHTML = quiz.length;
 }

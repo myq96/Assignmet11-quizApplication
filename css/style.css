@@ -35,6 +35,18 @@ body{
     margin: 40px auto;
     padding: 30px;
     border-radius: 10px;
+    animation: fadeInRight 1s ease;
+}
+
+@keyframes fadeInRight{
+    0%{
+        transform: translateX(40px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
 }
 
 .custom-box.hide{
@@ -253,7 +265,14 @@ body{
 }
 
 
-
+@media(max-width: 767px){
+    .result-box .btn{
+        margin-bottom: 15px;
+    }
+    body{
+        padding: 15px;
+    }
+}
 
 
 
